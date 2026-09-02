@@ -1,0 +1,229 @@
+---------------------------------------------------------
+pslibrary.0.1 (ADC, Aug. 2010)
+
+First release of the pseudopotential library. The following PPs 
+are available:
+
+H, B, C, N, O, F, Al, Si, P, S, Cl, Fe, Ni, Ag, Pt, Au, Pb.
+
+---------------------------------------------------------
+pslibrary.0.2 (ADC, Feb. 2011)
+
+The following PPs have been added to the library:
+
+Li, Be, Na, Cu, Ga, As, Se, Br, Mo, Cd, Sn, I, Hf, Ta
+
+---------------------------------------------------------
+pslibrary.0.2.1 (ADC, May 2011)
+
+A ghost in the Li PP has been removed. 
+
+The Fe PP substituted with a PP with 3s and 3p semicore states.
+
+Added an input file for the generation of norm conserving PPs with the same
+core radii suggested in the Troullier and Martins (TM) atomic code.
+
+--------------------------------------------------------
+pslibrary.0.2.2 (ADC, Aug. 2011)
+
+Introduced the possibility to generate the PP for only one element and
+for all functionals. Edit the file make_ps and choose the element, then
+run make_all_ps.
+
+Introduced the possibility to have different parameters in the scalar 
+relativistic (SR) or in the fully relativistic (FR) case. 
+
+SR changes: Pb
+
+FR changes: Al, Pb 
+
+SR additions: Pd, Ge, In, Te, Bi, Zn, Hg
+
+FR additions: Pd, Ge, In, Te, Bi, Zn, Hg
+
+Removed PPs:
+In the NC case Cu and W were not working. 
+
+--------------------------------------------------------
+pslibrary.0.2.3 (ADC, Dec. 2011)
+
+SR changes: NC-PP Ge and Sn PPs had a ghost. Improved PPs.
+
+Introduced two additional files with PAW and US PP inputs for remaining
+elements:
+
+ Ar At Ba Ca Ce Co Cr Cs He Ir K Kr La Mg Mn Nb Ne Os Po Rb Rh Re Ru Sb
+ Sc Sr Tc Ti Tl V Xe Y W Zr
+
+These PPs are known to have some problem in some case (mainly in the FR form)
+and need further tuning, but are a starting point for further optimization,
+so use them at your own risk. 
+In order to add also these PPs to your list uncomment the appropriate lines
+in make_ps.
+
+--------------------------------------------------------
+pslibrary.0.2.4 (ADC, Jan 2012)
+
+Reorganization of the documentation.
+Names of the PPs now conform to the QE recommendations.
+
+SR + FR changes: NC-PP: Sb and As had not SO projectors in the p channel 
+(which was local). Now d is local. 
+NC-PP: Ga with 3d in valence was too hard. Substituted with a 
+PP with 3d in the core.
+
+SR + FR changes: NC-PP: Ge had not SO projectors in the (local) p channel.
+Now d is local.
+NC-PP: Relativistic Sn had still a ghost. Core radii increased.
+
+SR + FR changes : NC-PP In had a ghost.
+
+PP transferred from the _tot file to the main file: Rh (SR+FR), Ir (SR+FR), Ar 
+
+PPs names now follows the indications of the QE PP distribution. Semicore
+states included in the PP are indicated in the PP name.
+
+Added two files containing alternative PPs. Presently:
+Fe : SR and FR without semicore 3s and 3p states.
+Pt : SR and FR PPs with semicore 5s and 5p states.
+Au : SR and FR PPs with semicore 5s and 5p states.
+
+--------------------------------------------------------
+pslibrary.0.2.5 (ADC, May 2012)
+
+Added PPs FR + SR: Mg with semicore 2s and 2p states has been added to the
+alternative PPs.
+
+Rh and V names were not correct in the paw case.
+
+Bug fix: The alternative Pt and Au inputs produced always scalar 
+relativistic data sets.
+
+Scripts updated for QE 5.0
+
+--------------------------------------------------------
+pslibrary.0.3.0 (ADC, Oct. 2012)
+
+Hf data set is not very accurate, moved to the _tot files.
+
+Ce data set had problems. Removed. 
+New Ce data set contributed by L. Paulatto.
+
+Alternative (FR+SR) Ag, Pd, and Ir, PP with semicore states added to the 
+alternative PPs.
+
+The name of the job now contains the pslibrary version. 
+Added to each PP name the number of the last version in which it changed.
+
+The e-mail address is no more allowed in the author name. 
+It is too difficult to update it.
+
+The PPs in the _tot files have been given a vote (a-c are candidate to be
+moved in the main PPs files).
+
+a: no error found, several structures for which structural parameters agree
+   with all-electron. A working PP.
+b: no error found, some structures have moderate differences with
+   all electron. A working PP that could be imporved. 
+c: no error found, some structures have large differences with all-electron. 
+   A working PP that should be improved.
+
+d: same convergence problem. Errors moderately large. Not acceptable PP,
+   need revision, but might be used in some cases.
+e: insufficient PP. Problems.
+q: PPs for which there is no info so far.
+
+Nb, Mo, Tc, Ru, Rh, have been substituted with hopefully improved data-sets. 
+Apparently in all this series the core radius of the local PP was too
+large and decreased the transferability.
+
+Pd, Au, Cl : the pseudization radii of the Q have been
+slightly changed to make revpbe working. This should give no change on the
+other functional, but the version has been updated to 0.3.0.
+Sc is still not working for revpbe. Change rmatch_augfun to 0.87.
+Ir and At are not working in the FR case with revpbe.
+
+Mg, Ne, Ar, Xe : These data-sets had negative dr2 problem. Slightly changed.
+
+--------------------------------------------------------
+pslibrary.0.3.1 (ADC, July 2013)
+
+Introduced the command make_test to test the data_sets.
+The tests are in paw_ps_test*.job and us_ps_test*.job. 
+
+Modified PPs: 
+SR and FR Ti. Small change for negative dr2 problems. 
+SR and FR Cd and Te: improved transferability. d core radius reduced.
+SR and FR Sb: improved transferability by adding 5d projectors.
+SR and FR Re: new version.
+SR and FR Xe: still problems. Replaced with a PP with 4d in valence.
+SR and FR Mn and Ge: slightly changed to improve transferability in the FR case.
+SR and FR: Ag with semicore 4s and 4p states was not working substituted
+with a new one.
+
+Added PPs:
+Added PP of Be with 1s semicore states among the alternative PPs.
+Added PPs of Co, Ni, Cu, Zn with 3s and 3p semicore states among the 
+alternative PPs.
+Added PPs of As, Se, Br, with 3d semicore states among the alternative PPs.
+Added a PP of Sb with 4d semicore states among the alternative PPs.
+Added a PP of Te without 4d semicore states among the alternative PPs.
+New PPs SR and FR: Po, At, Rn.
+
+Removed PPs:
+SR and FR La.
+
+Experimental PPs with fixed f occupations for Lanthanides have been added:
+paw_lan_collection.job and us_lan_collection.job.
+Trivalent elements: Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Yb, Lu.
+Divalent elements: Sm, Eu, Er, Yb. 
+paw_lan_test.job and us_lan_test.job make the corresponding tests.
+
+Pseudopotentials of Nb, Sc, Sr, Y, Zr, Tc, Tl moved from the _tot list to the
+main list. PP of I moved from the main list to the _tot list.
+
+old PPs distributed with some version of pslibrary and substituted
+by a newer version have been removed from the main scripts and
+collected in the file obsolete.job.
+
+--------------------------------------------------------
+pslibrary.1.0.0 (ADC, December 2013)
+
+A major reorganization of pslibrary. Introduced four new files:
+
+paw_ps_high.job         paw_ps_low.job
+us_ps_high.job          us_ps_low.job
+
+and the corresponding four test files:
+
+paw_ps_test_high.job    paw_ps_test_low.job
+us_ps_test_high.job     us_ps_test_low.job
+
+These files contain one or more PPs for all elements up to Pu (Z=94).
+The PPs are constructed with a uniform method but many of them are 
+similar to those of pslibrary.0.3.1. The valence states are the following:
+
+First row   1s (H, He)
+Second row  1s, 2s (Li, Be). 2s, 2p (Be, B-Ne).
+Third row   2s, 2p, 3s, 3p (Na, Mg). 3s, 3p (Mg, Al-Ar).
+Fourth row  3s, 3p, 3d, 4s, 4p (K-Zn). 3d, 4s, 4p (Fe-Kr). 4s, 4p (As-Kr).
+Fifth row   4s, 4p, 4d, 5s, 5p (Rb-Cd). 4d, 5s, 5p (Pd-Xe). 5s, 5p (Sb-Xe).
+Sixth row   4d, 4f, 5s, 5p, 5d, 6s, 6p (La-Hf). 5s, 5p, 5d, 6s, 6p (Cs-Hg).
+            5d, 6s, 6p (Ir-Rn).
+Seventh row 5f, 6s, 6p, 6d, 7s, 7p (Fr-Pu).
+
+Files of pslibrary.0.3.1 are still here for compatibility,
+but all further developments will be done on pslibrary.1.0.0 files.
+pslibrary.0.3.1 PPs are no more generated by default. If you want to
+use them, please uncomment the appropriate lines inside make_ps and make_test.
+If a PP is commented inside the files of pslibrary.0.3.1, this means that for 
+some reason the PP in pslibrary.1.0.0 is to be preferred. You can still
+uncomment them, but this is strongly discouraged. If the PP is not commented
+this means that it is equivalent to that of pslibrary.1.0.0 or possibly better,
+you can continue to use it.
+
+The experimental lanthanides PPs in pslibrary.0.3.1 have been moved to the
+pslibrary.1.0.0. Some of them have been modified. 
+
+Commented pslibrary.0.3.1 PPs: Be without semicore 1s, I, Cu with semicore,
+                               Se with semicore, Hf, He.

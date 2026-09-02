@@ -1,0 +1,58 @@
+#!/bin/bash
+#!
+#! Copyright (C) 2010-2013 Andrea Dal Corso 
+#! This file is distributed under the terms of the
+#! GNU General Public License. See the file `License'
+#! in the root directory of the present distribution,
+#! or http://www.gnu.org/copyleft/gpl.txt .
+#!
+
+tar_directory=./pslibrary.1.0.0 
+mkdir $tar_directory
+
+cp ./AAREADME ./ChangeLog ./License ./clean ./clean_all ./make_ps ./make_all_ps \
+./make_test ./make_all_test \
+./paw_ps_collection.job  ./us_ps_collection.job ./nc_ps_collection.job \
+./paw_ps_collection_tot.job ./us_ps_collection_tot.job \
+./paw_ps_collection_alt.job ./us_ps_collection_alt.job \
+./paw_lan_collection.job ./us_lan_collection.job \
+./paw_ps_test.job ./paw_ps_test_alt.job ./paw_ps_test_tot.job \
+./paw_lan_test.job ./us_lan_test.job \
+./us_ps_test.job ./us_ps_test_alt.job ./us_ps_test_tot.job ./QE_path \
+./paw_ps_high.job ./us_ps_high.job ./paw_ps_low.job ./us_ps_low.job \
+./paw_ps_test_high.job ./us_ps_test_high.job \
+./paw_ps_test_low.job ./us_ps_test_low.job \
+obsolete.job ./make_tar $tar_directory
+
+mkdir $tar_directory/pz
+mkdir $tar_directory/rel-pz
+mkdir $tar_directory/pbe
+mkdir $tar_directory/rel-pbe
+mkdir $tar_directory/bp
+mkdir $tar_directory/rel-bp
+mkdir $tar_directory/pbesol
+mkdir $tar_directory/rel-pbesol
+mkdir $tar_directory/pw91
+mkdir $tar_directory/rel-pw91
+mkdir $tar_directory/revpbe
+mkdir $tar_directory/rel-revpbe
+mkdir $tar_directory/wc
+mkdir $tar_directory/rel-wc
+
+
+cp ./pz/environment.job $tar_directory/pz
+cp ./rel-pz/environment.job $tar_directory/rel-pz
+cp ./pbe/environment.job $tar_directory/pbe
+cp ./rel-pbe/environment.job $tar_directory/rel-pbe
+cp ./bp/environment.job $tar_directory/bp
+cp ./rel-bp/environment.job $tar_directory/rel-bp
+cp ./pbesol/environment.job $tar_directory/pbesol
+cp ./rel-pbesol/environment.job $tar_directory/rel-pbesol
+cp ./pw91/environment.job $tar_directory/pw91
+cp ./rel-pw91/environment.job $tar_directory/rel-pw91
+cp ./revpbe/environment.job $tar_directory/revpbe
+cp ./rel-revpbe/environment.job $tar_directory/rel-revpbe
+cp ./wc/environment.job $tar_directory/wc
+cp ./rel-wc/environment.job $tar_directory/rel-wc
+
+tar -czvf $tar_directory.tar.gz $tar_directory
