@@ -1,7 +1,0 @@
-#!/bin/bash
-
-fct='rel-pbesol'
-
-gfun='PBESOL'
-
-nrel=2

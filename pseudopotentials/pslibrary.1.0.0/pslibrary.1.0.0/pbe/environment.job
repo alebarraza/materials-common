@@ -1,8 +1,0 @@
-#!/bin/bash
-
-fct='pbe'
-
-gfun='PBE'
-
-nrel=1
-

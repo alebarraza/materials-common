@@ -29,3 +29,9 @@ Thumbs.db
 
 # Misc
 *.log
+
+# Pseudopotentials
+pseudopotentials/
+
+# Windows ADS
+*:Zone.Identifier

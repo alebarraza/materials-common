@@ -1,3 +1,0 @@
-#!/bin/bash
-
-\rm -rf ./PSEUDOPOTENTIALS ./WORK ./TEST ./*.in ./ld1* ./*.UPF
